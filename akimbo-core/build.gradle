@@ -1,0 +1,22 @@
+apply plugin: 'java-library'
+apply plugin: 'maven-publish'
+
+dependencies {
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            myPublicationName(MavenPublication) {
+                groupId = 'eighty4.akimbo'
+                artifactId = 'akimbo-core'
+                version = '1.0-SNAPSHOT'
+                from components.java
+            }
+        }
+    }
+}
+
+compileJava {
+    options.compilerArgs << '-parameters'
+}

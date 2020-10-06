@@ -1,0 +1,24 @@
+import eighty4.akimbo.gradle.AkimboGradlePlugin
+
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath 'eighty4.akimbo:akimbo-gradle-plugin:1.0-SNAPSHOT'
+    }
+}
+
+plugins {
+    id 'application'
+}
+
+apply plugin: AkimboGradlePlugin
+
+dependencies {
+    compile(project(':akimbo-core'))
+    annotationProcessor(project(':akimbo-processor'))
+}
+
+applicationName = "Akimbo Sandbox App"
